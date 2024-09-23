@@ -1,6 +1,8 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Scope } from '@nestjs/common';
 
-@Injectable()
+@Injectable({
+  scope: Scope.TRANSIENT,
+})
 export class SongsService {
   // lcoal db
   // local array...
@@ -14,6 +16,9 @@ export class SongsService {
 
   //   fetch the songs from the database...
   findAll() {
-    return this.songs;
+    // having error from the database during fetching data...
+
+    // throw new Error('Error, while fetching songs.');
+    return 'this.songs;';
   }
 }
